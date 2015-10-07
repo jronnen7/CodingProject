@@ -84,10 +84,15 @@ class Circle extends Shape {
 	}
 }
 
+var panDir = -1;
 class Pan extends MyDrawable {
+	constructor(panDirection) {
+		super();
+	}
 	draw () {
 		super.draw();
 		
-		this.ctx.transform(1,0.5,-0.5,1,30,10);
+		const panDistance = 1000;
+		this.canvas.style.transform = "translate(" + panDistance*panDir + "px,0px)"; (panDir == -1) ? panDir = 0: panDir =-1;
 	}
 }

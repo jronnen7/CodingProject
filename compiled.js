@@ -147,13 +147,15 @@ var Circle = (function (_Shape3) {
 	return Circle;
 })(Shape);
 
+var panDir = -1;
+
 var Pan = (function (_MyDrawable2) {
 	_inherits(Pan, _MyDrawable2);
 
-	function Pan() {
+	function Pan(panDirection) {
 		_classCallCheck(this, Pan);
 
-		_get(Object.getPrototypeOf(Pan.prototype), "constructor", this).apply(this, arguments);
+		_get(Object.getPrototypeOf(Pan.prototype), "constructor", this).call(this);
 	}
 
 	_createClass(Pan, [{
@@ -161,7 +163,8 @@ var Pan = (function (_MyDrawable2) {
 		value: function draw() {
 			_get(Object.getPrototypeOf(Pan.prototype), "draw", this).call(this);
 
-			this.ctx.transform(1, 0.5, -0.5, 1, 30, 10);
+			var panDistance = 1000;
+			this.canvas.style.transform = "translate(" + panDistance * panDir + "px,0px)";panDir == -1 ? panDir = 0 : panDir = -1;
 		}
 	}]);
 
