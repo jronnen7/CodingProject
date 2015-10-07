@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Coding Project</title>
+<script src="compiled.js" type="text/javascript" ></script>
+
+</head>
+
+<body>
+<form>
+  <input type="radio" name="grp1" value="circle" checked>Circle
+  <br>
+  <input type="radio" name="grp1" value="triangle">Triangle
+  <br>
+   <input type="radio" name="grp1" value="square">Square
+  <br>
+  <input type="radio" name="grp1" value="pan">Pan
+</form>
+
+<canvas id="canvas" width="1000" height="640">
+
+</canvas>
+<script type="text/javascript">
+
+	function GetCheckedRadioButton() {
+		var radioButtons = document.getElementsByName("grp1");
+		var ret;
+		for(var i=0; i<radioButtons.length;i++){
+			if(radioButtons[i].checked) {
+				ret = radioButtons[i]; break;
+			}
+		}
+		return ret;
+	}
+	function Draw(evt) {
+		var checked = GetCheckedRadioButton();
+//		var shape = new ShapeFactory.CreateShape(checked, evt.clientX, evt,clientY);
+		var shape = new ShapeFactory().buildShape(evt.clientX, evt.clientY-75, checked.value);
+		shape.draw();
+	}
+	
+	
+	
+	canvas.addEventListener("click",function(evt) {
+		new Draw(evt);
+	});
+	
+	canvas.addEventListener("scroll", function(evt) {
+		
+	});
+	
+
+
+	
+</script>
+</body>
+</html>
