@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <title>Coding Project</title>
 <script src="compiled.js" type="text/javascript" ></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <style>
 
 	#container {
@@ -15,18 +16,22 @@
 	#container canvas {
 		transition: transform ease-in-out 1s;
 	}
+	form input:checked + span, form input:checked + span + i{
+		color:green
+		
+	}
 </style>
 </head>
 
 <body>
 <form>
-  <input type="radio" name="grp1" value="circle" checked>Circle
+  <input type="radio" name="grp1" value="circle" checked><span>Circle </span><i class="fa fa-circle"></i>
   <br>
-  <input type="radio" name="grp1" value="triangle">Triangle
+  <input type="radio" name="grp1" value="triangle"><span>Triangle </span><i class="fa fa-caret-up"></i>
   <br>
-   <input type="radio" name="grp1" value="square">Square
+   <input type="radio" name="grp1" value="square"><span>Square </span><i class="fa fa-square"></i>
   <br>
-  <input type="radio" name="grp1" value="pan">Pan
+  <input type="radio" name="grp1" value="pan"><span>Pan </span><i class="fa fa-hand-paper-o"></i>
 </form>
 
 <div id="container">
@@ -75,7 +80,6 @@
 	}
 	function Draw(evt) {
 		var checked = GetCheckedRadioButton();
-//		var shape = new ShapeFactory.CreateShape(checked, evt.clientX, evt,clientY);
 		var parentPos = getPosition(document.getElementById("canvas"));
 		var shape = new ShapeFactory().buildShape(evt.clientX-parentPos.x, evt.clientY-parentPos.y, checked.value);
 		shape.draw();

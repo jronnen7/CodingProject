@@ -88,6 +88,7 @@ var Triangle = (function (_Shape) {
 			path.moveTo(this.x - 20, this.y + 10);
 			path.lineTo(this.x + 20, this.y + 10);
 			path.lineTo(this.x, this.y - 10);
+			this.ctx.fillStyle = "#FF0000";
 			this.ctx.fill(path);
 		}
 	}]);
@@ -114,7 +115,7 @@ var Square = (function (_Shape2) {
 			path.lineTo(this.x - 10, this.y + 10);
 			path.lineTo(this.x + 10, this.y + 10);
 			path.lineTo(this.x + 10, this.y - 10);
-
+			this.ctx.fillStyle = "#0000FF";
 			this.ctx.fill(path);
 		}
 	}]);
@@ -140,6 +141,7 @@ var Circle = (function (_Shape3) {
 			this.ctx.beginPath();
 			this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
 			this.ctx.closePath();
+			this.ctx.fillStyle = "#00FF00";
 			this.ctx.fill();
 		}
 	}]);
