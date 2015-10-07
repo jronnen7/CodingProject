@@ -94,7 +94,7 @@ class Pan extends MyDrawable {
 	draw () {
 		super.draw();
 		
-		const panDistance = 1000;
-		this.canvas.style.transform = "translate(" + panDistance*panDir + "px,0px)"; (panDir == -1) ? panDir = 0: panDir =-1;
+		const panDistance = 400;
+		this.canvas.style.transform = "translate(0px,"+ panDistance * panDir +"px)"; (panDir == -1) ? panDir = 0: panDir =-1;
 	}
 }

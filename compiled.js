@@ -165,8 +165,8 @@ var Pan = (function (_MyDrawable2) {
 		value: function draw() {
 			_get(Object.getPrototypeOf(Pan.prototype), "draw", this).call(this);
 
-			var panDistance = 1000;
-			this.canvas.style.transform = "translate(" + panDistance * panDir + "px,0px)";panDir == -1 ? panDir = 0 : panDir = -1;
+			var panDistance = 400;
+			this.canvas.style.transform = "translate(0px," + panDistance * panDir + "px)";panDir == -1 ? panDir = 0 : panDir = -1;
 		}
 	}]);
 
